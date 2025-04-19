@@ -2,9 +2,6 @@
 
 A simple Flask web application to analyze email headers.
 
-## Description
-
-This tool allows you to paste raw email headers into a text area and provides a basic analysis, extracting common header fields like Subject, From, To, Date, and all Received headers.
 
 ## Running Locally
 
