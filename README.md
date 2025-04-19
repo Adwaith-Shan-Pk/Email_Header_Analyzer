@@ -2,9 +2,6 @@
 
 A simple Flask web application to analyze email headers.
 
-## Description
-
-This tool allows you to paste raw email headers into a text area and provides a basic analysis, extracting common header fields like Subject, From, To, Date, and all Received headers.
 
 ## Running Locally
 
@@ -16,7 +13,7 @@ Follow these steps to run the application on your local machine:
     It's recommended to use a virtual environment to manage dependencies.
     ```bash
     # Navigate to the project directory
-    cd e:\Coding\Email_Header_Analyzer
+    cd projectdowload/Email_Header_Analyzer
 
     # Create a virtual environment (e.g., named 'venv')
     python -m venv venv
