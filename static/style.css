@@ -1,0 +1,170 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0056b3; /* A nice blue */
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 15px;
+}
+
+h2 {
+    color: #17a2b8; /* A teal color */
+    margin-top: 30px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    height: 250px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.95em;
+    resize: vertical; /* Allow vertical resizing */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+
+textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #28a745; /* A pleasant green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Results Section */
+.results {
+    margin-top: 30px;
+    background: #eef1f5; /* Lighter background for results */
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #d6dadf;
+}
+
+.results dl {
+    margin: 0;
+    padding: 0;
+}
+
+dt {
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 15px;
+    font-size: 1.05em;
+}
+
+dd {
+    margin-left: 0; /* Align with dt */
+    margin-bottom: 10px;
+    padding-left: 10px; /* Indent content slightly */
+    border-left: 3px solid #17a2b8; /* Accent line */
+}
+
+.results pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #e3e6e9;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-top: 5px;
+    overflow-x: auto; /* Add scrollbar if content overflows horizontally */
+}
+
+/* Error Message */
+.error {
+    color: #dc3545; /* Standard error red */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    textarea {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 0;
+    }
+    .container {
+        margin: 0;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+    }
+}
