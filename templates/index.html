@@ -24,11 +24,25 @@
                 <h2>Analysis Results:</h2>
                 <dl>
                     {% for key, value in analysis.items() %}
-                        <dt>{{ key }}:</dt>
-                        {% if value is iterable and value is not string %}
-                            {% for item in value %}
-                                <dd><pre>{{ item }}</pre></dd>
+                        {# Special handling for IP Reputation results #}
+                        {% if key == 'IP Reputation' %}
+                            <dt>IP Reputation:</dt>
+                            {% for ip, status in value.items() %}
+                                <dd>{{ ip }} - <strong>{{ status }}</strong></dd>
                             {% endfor %}
+                        {% elif key != 'Received' %} {# Avoid double-printing Received headers if handled separately #}
+                            <dt>{{ key }}:</dt>
+                            {% if value is iterable and value is not string %}
+                                {# Default handling for other iterable values #}
+                                {% for item in value %}
+                                    <dd><pre>{{ item }}</pre></dd>
+                                {% endfor %}
+                            {% endif %}
+                        {% elif key == 'Received' %} {# Handle Received headers specifically if needed, or just display normally #}
+                             <dt>{{ key }}:</dt>
+                             {% for header_val in value %}
+                                <dd><pre>{{ header_val }}</pre></dd>
+                             {% endfor %}
                         {% else %}
                             <dd><pre>{{ value }}</pre></dd>
                         {% endif %}
