@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Email Header Analyzer</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        textarea {
+            width: 98%;
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .results {
+            margin-top: 20px;
+            background: #e9e9e9;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .results pre {
+            white-space: pre-wrap; /* Allows wrapping long lines */
+            word-wrap: break-word; /* Breaks long words */
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        dt {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        dd {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Header Analyzer</h1>
+        <form method="post">
+            <label for="header_data">Paste Email Header Below:</label><br>
+            <textarea id="header_data" name="header_data" required></textarea><br>
+            <button type="submit">Analyze Header</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if analysis %}
+            <div class="results">
+                <h2>Analysis Results:</h2>
+                <dl>
+                    {% for key, value in analysis.items() %}
+                        <dt>{{ key }}:</dt>
+                        {% if value is iterable and value is not string %}
+                            {% for item in value %}
+                                <dd><pre>{{ item }}</pre></dd>
+                            {% endfor %}
+                        {% else %}
+                            <dd><pre>{{ value }}</pre></dd>
+                        {% endif %}
+                    {% endfor %}
+                </dl>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
